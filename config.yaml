@@ -1,0 +1,20 @@
+server:
+  port: 9000
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+ 
+zuul: 
+  prefix: /api
+  routes:
+    AdminClientService:
+      path: /AdminClientService/**
+      url: http://localhost:8000
+    DoctorClientService:
+      path: /DoctorClientService/**
+      url: http://localhost:8001
+    PatientClientService:
+      path: /PatientClientService/**
+      url: http://localhost:8002
